@@ -19,7 +19,7 @@ Pkg.add("https://github.com/gabysbrain/MdSlicing.jl")
 2. You will also need to create a `ProblemSpec` instance to keep track of 
    the names and limits of each dimension.
    ```
-   using MdSlicign
+   using MdSlicing
    lims = ProblemSpec("x1" => (-1, 1), "x2" => (-1, 1), "x3" => (-1, 1))
    ```
 3. Create a set of slices from the function you have. Here, we create 50 
