@@ -1,13 +1,17 @@
 module MdSlicing
-export fillfps, hyperslice
+export ProblemSpec, fillfps, hyperslice, sliceplorer, plot
 
 include("types.jl")
 include("Meshes.jl")
 include("HypersliceSets.jl")
 include("Hyperslice.jl")
+include("Sliceplorer.jl")
+include("plots.jl")
 
 hyperslice = Hyperslice.hyperslice
+sliceplorer = Sliceplorer.sliceplorer
 
+# FIXME: put types back in
 #function fillfps(ps::ProblemSpec, fp::Array{Union{Missing,Float64},1}, n::Int = 50)
 function fillfps(ps, fp, n = 50)
   if !any(map(ismissing, fp)) # special case
