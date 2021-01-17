@@ -1,5 +1,3 @@
-module Sliceplorer
-export sliceplorer
 
 include("types.jl")
 
@@ -39,5 +37,4 @@ function sliceplorer(f, spec, n=50)
   output
 end
 
-end # module
 

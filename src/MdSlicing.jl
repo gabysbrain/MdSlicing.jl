@@ -9,7 +9,7 @@ include("Sliceplorer.jl")
 include("plots.jl")
 
 hyperslice = Hyperslice.hyperslice
-sliceplorer = Sliceplorer.sliceplorer
+#sliceplorer = Sliceplorer.sliceplorer
 
 # FIXME: put types back in
 #function fillfps(ps::ProblemSpec, fp::Array{Union{Missing,Float64},1}, n::Int = 50)
