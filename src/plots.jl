@@ -3,7 +3,7 @@
 using VegaLite
 using DataFrames
 
-include("types.jl")
+#include("types.jl")
 
 # Converts sliceplorer data to the DataFrame needed for vegalite
 function vl_data(data::Sliceplorer)

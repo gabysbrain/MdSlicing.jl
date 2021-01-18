@@ -1,7 +1,7 @@
 using Test
 
-include("../src/intersecttest.jl")
 include("../src/types.jl")
+include("../src/intersecttest.jl")
 
 @testset "address error from focus point 1.5, 1.5, 1.5 with single triangle mesh" begin
 

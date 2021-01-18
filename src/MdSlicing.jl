@@ -4,6 +4,7 @@ export ProblemSpec, fillfps, hyperslice, sliceplorer, plot
 include("types.jl")
 include("meshes.jl")
 include("hyperslicesets.jl")
+include("intersecttest.jl")
 include("hyperslice.jl")
 include("sliceplorer.jl")
 include("plots.jl")

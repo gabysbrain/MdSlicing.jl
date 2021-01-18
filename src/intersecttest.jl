@@ -1,6 +1,6 @@
 
 using LinearAlgebra
-include("types.jl")
+#include("types.jl")
 
 function isplanar(simplex::Simplex, fp::PointND, d1::Dim, d2::Dim)
   checkdims = [x for x in 1:length(fp) if x!=d1 && x!=d2]
