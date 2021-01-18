@@ -1,7 +1,3 @@
-module Meshes
-export ConvexMesh, savehdf5, readhdf5
-
-include("types.jl")
 
 using HDF5
 
@@ -54,4 +50,3 @@ function readhdf5(filename::String)
   end
 end
 
-end

@@ -1,8 +1,3 @@
-module HypersliceSets
-export HypersliceSegment, HypersliceSet, savejson, readjson
-
-include("types.jl")
-
 using JSON
 
 struct HypersliceSegment
@@ -59,4 +54,3 @@ function readjson(filename::String)
   HypersliceSet(ps, slices)
 end
 
-end

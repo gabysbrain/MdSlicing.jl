@@ -1,12 +1,7 @@
-module Hyperslice
-export hyperslice
-
-include("types.jl")
+#include("types.jl")
 include("util.jl")
-include("IntersectTest.jl")
+#include("IntersectTest.jl")
 
-using ..Meshes
-using ..HypersliceSets
 using Sobol: SobolSeq, next!
 using JSON
 
@@ -51,4 +46,3 @@ function slice(mesh::ConvexMesh, fp::PointND, d1::Dim, d2::Dim)
   return slices
 end
 
-end

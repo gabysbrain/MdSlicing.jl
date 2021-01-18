@@ -1,7 +1,6 @@
 using Test
 
-include("../src/IntersectTest.jl")
-
+include("../src/intersecttest.jl")
 include("../src/types.jl")
 
 planarTriangle = [

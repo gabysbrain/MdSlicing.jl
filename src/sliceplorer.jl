@@ -20,7 +20,7 @@ function sample_dim(f, rng, fps, d)
   [func_samples(f, rng, fp, d) for fp = fps]
 end
 
-"""
+@doc raw"""
     sliceplorer(f, spec)
 
 Compute the slices for a given function `f` given the ProblemSpec 
