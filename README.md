@@ -14,6 +14,8 @@ Pkg.add("https://github.com/gabysbrain/MdSlicing.jl")
 This will plot the function $f(x) = \sum x^2$.
 
 ```julia
+using MdSlicing
+
 f = x -> sum(x .* x)
 spec = ProblemSpec("x1" => (-1.,1.), "x2" => (-1.,1.), "x3" => (-1.,1.))
 d = sliceplorer(f, spec)
