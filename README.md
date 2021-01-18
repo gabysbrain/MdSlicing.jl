@@ -13,11 +13,11 @@ Pkg.add("https://github.com/gabysbrain/MdSlicing.jl")
 
 This will plot the function $f(x) = \sum x^2$.
 
-```julia-repl
-julia> f = x -> sum(x .* x)
-julia> spec = ProblemSpec("x1" => (-1.,1.), "x2" => (-1.,1.), "x3" => (-1.,1.))
-julia> d = sliceplorer(f, spec)
-julia> plot(d)
+```julia
+f = x -> sum(x .* x)
+spec = ProblemSpec("x1" => (-1.,1.), "x2" => (-1.,1.), "x3" => (-1.,1.))
+d = sliceplorer(f, spec)
+plot(d)
 ```
 
 1. If your data is a set of samples in a table, rather than a function then 
@@ -27,17 +27,17 @@ julia> plot(d)
 
 2. You will also need to create a `ProblemSpec` instance to keep track of 
    the names and limits of each dimension.
-   ```
+   ```julia
    using MdSlicing
    lims = ProblemSpec("x1" => (-1, 1), "x2" => (-1, 1), "x3" => (-1, 1))
    ```
 3. Create a set of slices from the function you have. Here, we create 50 
    slices of the function for each dimension.
-   ```
+   ```julia
    slices = sliceplorer(f, lims)
    ```
 4. Now plot the slices
-   ```
+   ```julia
    plot(slices)
    ```
 
