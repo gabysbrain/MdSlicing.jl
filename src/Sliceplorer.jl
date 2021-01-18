@@ -1,6 +1,4 @@
 
-include("types.jl")
-
 ## Sliceplorer definition stuff
 using Sobol
 
