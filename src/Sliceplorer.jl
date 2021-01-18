@@ -20,6 +20,24 @@ function sample_dim(f, rng, fps, d)
   [func_samples(f, rng, fp, d) for fp = fps]
 end
 
+"""
+    sliceplorer(f, spec)
+
+Compute the slices for a given function `f` given the ProblemSpec 
+range `spec`.
+
+See also: [`plot`](@ref)
+
+# Examples
+
+This will plot the function $f(x) = \sum x^2$.
+```julia-repl
+julia> f = x -> sum(x .* x)
+julia> spec = ProblemSpec("x1" => (-1.,1.), "x2" => (-1.,1.), "x3" => (-1.,1.))
+julia> d = sliceplorer(f, spec)
+julia> plot(d)
+```
+"""
 # TODO: add type signature
 function sliceplorer(f, spec, n=50)
   # Create focus points for slicing

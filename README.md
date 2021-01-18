@@ -11,6 +11,15 @@ Pkg.add("https://github.com/gabysbrain/MdSlicing.jl")
 
 ## 1D slice example
 
+This will plot the function $f(x) = \sum x^2$.
+
+```julia-repl
+julia> f = x -> sum(x .* x)
+julia> spec = ProblemSpec("x1" => (-1.,1.), "x2" => (-1.,1.), "x3" => (-1.,1.))
+julia> d = sliceplorer(f, spec)
+julia> plot(d)
+```
+
 1. If your data is a set of samples in a table, rather than a function then 
    build a regression model on your dataset so you have a function to 
    visualize. Divide your data into `X` which is a table of all independent
