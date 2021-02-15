@@ -8,7 +8,7 @@ using DataFrames
 # Converts sliceplorer data to the DataFrame needed for vegalite
 function vl_data(data::Sliceplorer)
   output = nothing
-  for (dimname,vals) in data
+  for (dimname,vals) in data.samples
     dfs = [ DataFrame(dim=dimname, 
                       fpid=i, 
                       x=[vv[1] for vv in v],

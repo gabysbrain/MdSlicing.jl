@@ -40,17 +40,25 @@ julia> plot(d)
 """
 # TODO: add type signature
 function sliceplorer(f, spec, n=50)
+  focuspoints = gen_fps(spec, n)
+  samps = sample_fps(f, focuspoints, spec, n)
+  Sliceplorer(focuspoints, samps)
+end
+
+function gen_fps(spec, n)
   # Create focus points for slicing
   dmins = [x[1] for (_,x) in spec]
   dmaxs = [x[2] for (_,x) in spec]
   seq = SobolSeq(dmins, dmaxs)
-  focuspoints = hcat([next!(seq) for i = 1:n])
+  hcat([next!(seq) for i = 1:n])
+end
 
-  output = Sliceplorer()
+function sample_fps(f, focuspoints, spec, n)
+  samps = SliceplorerSamples()
   for (i,d) in enumerate(keys(spec))
-    output[d] = sample_dim(f, spec[d], focuspoints, i)
+    samps[d] = sample_dim(f, spec[d], focuspoints, i)
   end
-  output
+  samps
 end
 
 

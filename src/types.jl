@@ -33,5 +33,10 @@ ProblemSpec = OrderedDict{String,Tuple{Float64,Float64}}
 SliceplorerPoint = Tuple{Float64,Float64}
 SliceplorerDimSample = Array{SliceplorerPoint}
 SliceplorerDim = Array{SliceplorerDimSample}
-Sliceplorer = OrderedDict{String,SliceplorerDim}
+SliceplorerSamples = OrderedDict{String,SliceplorerDim}
+
+struct Sliceplorer 
+  focusPoints :: Array{PointND}
+  samples :: SliceplorerSamples
+end
 
