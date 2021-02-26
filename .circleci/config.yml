@@ -9,7 +9,7 @@ defaults: &steps
 
     - run:
         name: Install and Test this package
-        command: julia --project -e 'using Pkg; Pkg.test(coverage=true);'
+        command: julia --project -e 'using Pkg; Pkg.add("TestReports"); using TestReports; TestReports.test("MdSlicing")'
 
 jobs:
   "julia-release":
