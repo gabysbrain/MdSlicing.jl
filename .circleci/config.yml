@@ -6,10 +6,11 @@ defaults: &steps
     - checkout
 
     ## build and test -----------------
-
     - run:
         name: Install and Test this package
         command: julia --project -e 'using Pkg; Pkg.add("TestReports"); using TestReports; TestReports.test("MdSlicing")'
+    - store_test_results:
+        path: /root/project/
 
 jobs:
   "julia-release":
