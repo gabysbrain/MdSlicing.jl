@@ -5,7 +5,7 @@ include("util.jl")
 using Sobol: SobolSeq, next!
 using JSON
 
-function hyperslice(mesh::ConvexMesh, n::UInt32=UInt32(50))
+function slice2d(mesh::ConvexMesh; n::UInt32=UInt32(50)) :: SliceSet2D
   dims = size(mesh)[2]
 
   # Generate the focus points
@@ -17,13 +17,13 @@ function hyperslice(mesh::ConvexMesh, n::UInt32=UInt32(50))
   hyperslice(mesh, fps)
 end
 
-function hyperslice(mesh::ConvexMesh, fps::Array{PointND})
+function slice2d(mesh::ConvexMesh, fps::Array{PointND}) :: SliceSet2D
   slices = []
   for fp in fps
     ss = sliceDims(mesh, fp)
     append!(slices, ss)
   end
-  HypersliceSet(mesh.problemSpec, slices)
+  SliceSet2D(mesh.problemSpec, slices)
 end
 
 # slices of all dimensions
@@ -45,4 +45,15 @@ function slice(mesh::ConvexMesh, fp::PointND, d1::Dim, d2::Dim)::Vector{Tuple{Si
   end
   return slices
 end
+
+function hypersliceplorer(mesh::ConvexMesh; n::UInt32=UInt32(50))
+  slices = slice2d(mesh; n=n);
+  plot(slices)
+end
+
+function hypersliceplorer(mesh::ConvexMesh, fps::Array{PointND})
+  slices = slice2d(mesh, fps);
+  plot(slices)
+end
+
 

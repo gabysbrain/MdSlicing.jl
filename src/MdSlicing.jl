@@ -1,5 +1,5 @@
 module MdSlicing
-export ProblemSpec, ConvexMesh, fillfps, hyperslice, sliceplorer, plot
+export ProblemSpec, ConvexMesh, fillfps, slice1d, slice2d, sliceplorer, hypersliceplorer, plot
 
 include("types.jl")
 include("meshes.jl")

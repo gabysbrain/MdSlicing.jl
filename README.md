@@ -17,7 +17,7 @@ using MdSlicing
 
 f = x -> sum(x .* x)
 spec = ProblemSpec("x1" => (-1.,1.), "x2" => (-1.,1.), "x3" => (-1.,1.))
-d = sliceplorer(f, spec)
+d = slice1d(f, spec)
 plot(d)
 ```
 
@@ -108,7 +108,7 @@ plot(slices)
    ```
 2. Create a set of slices using `hyperslice`
    ```julia
-   slices = hyperslice(cube, UInt32(50));
+   slices = slice2d(cube; n=UInt32(50));
    ```
 3. View the results
    ```julia
@@ -119,3 +119,4 @@ plot(slices)
 
 This project is licensed under a BSD License --- see the
 [LICENSE.md](LICENSE.md) file for details.
+
