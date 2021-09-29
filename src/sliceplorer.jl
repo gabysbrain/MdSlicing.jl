@@ -10,14 +10,14 @@ function func1d(f, pt, d)
   end
 end
 
-function func_samples(f, rng, pt, d)
+function func_samples(f, rng, pt, d) :: SliceplorerDimSample
   f1d = func1d(f, pt, d)
   samples = range(rng[1], stop=rng[2], length=51) # 50 samples for now
-  [(x, f1d(x)) for x = samples]
+  SliceplorerDimSample([SliceplorerPoint((x, f1d(x))) for x = samples])
 end
 
-function sample_dim(f, rng, fps, d)
-  [func_samples(f, rng, fp, d) for fp = fps]
+function sample_dim(f, rng, fps, d) :: SliceplorerDim
+  SliceplorerDim([func_samples(f, rng, fp, d) for fp = fps])
 end
 
 @doc raw"""
@@ -39,10 +39,10 @@ julia> plot(d)
 ```
 """
 # TODO: add type signature
-function sliceplorer(f, spec, n=50)
+function sliceplorer(f, spec, n=50) :: Sliceplorer
   focuspoints = gen_fps(spec, n)
   samps = sample_fps(f, focuspoints, spec, n)
-  Sliceplorer(focuspoints, samps)
+  Sliceplorer(spec, focuspoints, samps)
 end
 
 function gen_fps(spec, n)
@@ -53,12 +53,12 @@ function gen_fps(spec, n)
   hcat([next!(seq) for i = 1:n])
 end
 
-function sample_fps(f, focuspoints, spec, n)
-  samps = SliceplorerSamples()
+function sample_fps(f, focuspoints, spec, n) :: SliceplorerSamples
+  samps = OrderedDict()
   for (i,d) in enumerate(keys(spec))
     samps[d] = sample_dim(f, spec[d], focuspoints, i)
   end
-  samps
+  SliceplorerSamples(samps)
 end
 
 

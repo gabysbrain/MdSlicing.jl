@@ -30,13 +30,22 @@ Simplex = Array{Float64}
 
 ProblemSpec = OrderedDict{String,Tuple{Float64,Float64}}
 
-SliceplorerPoint = Tuple{Float64,Float64}
-SliceplorerDimSample = Array{SliceplorerPoint}
-SliceplorerDim = Array{SliceplorerDimSample}
-SliceplorerSamples = OrderedDict{String,SliceplorerDim}
+struct SliceplorerPoint 
+  pt :: Tuple{Float64,Float64}
+end
+struct SliceplorerDimSample 
+  sample :: Array{SliceplorerPoint} # a single slice
+end
+struct SliceplorerDim 
+  dim :: Array{SliceplorerDimSample} # each element is one 'line' in the plot
+end
+struct SliceplorerSamples 
+  samples :: OrderedDict{String,SliceplorerDim}
+end
 
 struct Sliceplorer 
-    focusPoints::Array{PointND}
-    samples::SliceplorerSamples
+  problemSpec::ProblemSpec
+  focusPoints::Array{PointND}
+  samples::SliceplorerSamples
 end
 
