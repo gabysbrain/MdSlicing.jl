@@ -15,13 +15,13 @@ defaults: &steps
 jobs:
   "julia-release":
      docker:
-       - image: julia:1.5.3
+       - image: julia:1.6.3
 
      <<: *steps
 
   "julia-devel":
      docker:
-       - image: julia:1.6.0-rc1
+       - image: julia:1.7.0-rc1
      <<: *steps
 
 workflows:
