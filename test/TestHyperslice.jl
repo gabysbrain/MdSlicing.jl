@@ -55,7 +55,7 @@ function checksegs(v::Vector{Intersect2D}, exp::Vector{QHypersliceSeg})
   @test v2 ≈ e2
 end
 
-function checksegs(v::HypersliceSet, exp::Vector{QHypersliceSeg})
+function checksegs(v::SliceSet2D, exp::Vector{QHypersliceSeg})
   cv = Set(map(simplifyseg, v.slices))
   @test cv ≈ Set(exp)
 end
@@ -86,13 +86,13 @@ end
     ],
     [ 1 2 3 ]  )
 
-  checksegs(hyperslice(trimesh, [[1.5, 1.5, 1.5]]), QHypersliceSeg[])
+  checksegs(slice2d(trimesh, [[1.5, 1.5, 1.5]]), QHypersliceSeg[])
   # TODO: define macro to compare slices from expected slices
-  checksegs(hyperslice(trimesh, [[0.5, 0.5, 0.5]]),
+  checksegs(slice2d(trimesh, [[0.5, 0.5, 0.5]]),
     [ ([0.5, 0.5, 0.5], 1, 2, (0.5, 0.0), (0.5, 0.5)),
       ([0.5, 0.5, 0.5], 1, 3, (0.0, 0.0), (0.5, 0.5)),
       ([0.5, 0.5, 0.5], 2, 3, (0.0, 0.5), (0.5, 0.5)) ])
-  checksegs(hyperslice(trimesh, [[0.5, 0.5, 0.8]]),
+  checksegs(slice2d(trimesh, [[0.5, 0.5, 0.8]]),
     [ ([0.5, 0.5, 0.8], 1, 2, (0.8, 0.0), (0.8, 0.2)),
       ([0.5, 0.5, 0.8], 1, 3, (0.0, 0.0), (0.5, 0.5)),
       ([0.5, 0.5, 0.8], 2, 3, (0.0, 0.5), (0.5, 0.5)) ])
@@ -138,7 +138,7 @@ end
       ([0.5, 0.5, 0.5], 1, 2, (0.0, 0.0), (0.0, 0.5)),
       ([0.5, 0.5, 0.5], 1, 2, (0.0, 0.5), (0.0, 1.0)) ]
   )
-  checksegs(hyperslice(cube, [[0.5, 0.5, 0.5]]),
+  checksegs(slice2d(cube, [[0.5, 0.5, 0.5]]),
     [ ([0.5, 0.5, 0.5], 1, 2, (0.0, 0.0), (0.5, 0.0)),
       ([0.5, 0.5, 0.5], 1, 2, (0.5, 0.0), (1.0, 0.0)),
       ([0.5, 0.5, 0.5], 1, 2, (1.0, 0.0), (1.0, 0.5)),
