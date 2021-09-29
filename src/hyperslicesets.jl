@@ -36,12 +36,12 @@ function JSON.lower(hs::HypersliceSegment)
   )
 end
 
-struct HypersliceSet
+struct SliceSet2D
   problemSpec :: ProblemSpec
   slices :: Array{HypersliceSegment}
 end
 
-function savejson(filename::String, hs::HypersliceSet)
+function savejson(filename::String, hs::SliceSet2D)
   open(filename, "w") do io
     JSON.print(io, hs)
   end
@@ -51,6 +51,6 @@ function readjson(filename::String)
   j = JSON.parsefile(filename, dicttype=OrderedDict)
   ps = ProblemSpec(x[1] => Tuple(x[2]) for x in j["problemSpec"])
   slices = [HypersliceSegment(s["focusPoint"], s["simplex"], s["d1"], s["d2"], s["p1d1"], s["p1d2"], s["p2d1"], s["p2d2"]) for s in j["slices"]]
-  HypersliceSet(ps, slices)
+  SliceSet2D(ps, slices)
 end
 

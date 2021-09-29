@@ -43,7 +43,7 @@ end
 end
 
 # TODO: is it worth splitting this by suplot like the other dataset?
-@recipe function f(hsp::Vector{HypersliceSet})
+@recipe function f(hsp::Vector{SliceSet2D})
 
   # need to sort by dims otherwise layout and splitting doesn't work
   slices = sort(hsp.slices, by=x -> (x.d1, x.d2));
