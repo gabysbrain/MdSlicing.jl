@@ -20,7 +20,7 @@ using RecipesBase
 end
 
 # TODO: add option to lay out everything vertically, etc
-@recipe function f(sp::Sliceplorer)
+@recipe function f(sp::SliceSet1D)
 
   # global options for the subplots
   legend := false

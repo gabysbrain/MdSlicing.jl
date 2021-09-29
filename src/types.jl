@@ -43,7 +43,7 @@ struct SliceplorerSamples
   samples :: OrderedDict{String,SliceplorerDim}
 end
 
-struct Sliceplorer 
+struct SliceSet1D 
   problemSpec::ProblemSpec
   focusPoints::Array{PointND}
   samples::SliceplorerSamples
