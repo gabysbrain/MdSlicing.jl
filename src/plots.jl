@@ -24,7 +24,7 @@ end
 
   # global options for the subplots
   legend := false
-  link := :both
+  link := :y
   layout := length(sp.problemSpec) # number of dimensions
   #seriestype := :sliceplorerdim
 
